@@ -1,0 +1,19 @@
+[workspace]
+members = ["packages/*"]
+resolver = "1"
+
+
+[profile.release-with-debug]
+inherits = "release"
+debug = true
+
+
+# Enable a small amount of optimization in debug mode
+[profile.dev]
+opt-level = 1
+
+# Enable high optimizations for dependencies but not us
+# Also disable debug information for dependencies
+[profile.dev.package."*"]
+opt-level = 3
+debug = true
